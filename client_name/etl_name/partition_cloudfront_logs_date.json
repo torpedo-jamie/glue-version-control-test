@@ -1,0 +1,38 @@
+{
+  "name" : "partition_cloudfront_logs_date",
+  "description" : "",
+  "role" : "arn:aws:iam::996091670049:role/AdminRole",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-assets-996091670049-eu-west-1/scripts/partition_cloudfront_logs_date.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--enable-metrics" : "true",
+    "--enable-spark-ui" : "true",
+    "--spark-event-logs-path" : "s3://aws-glue-assets-996091670049-eu-west-1/sparkHistoryLogs/",
+    "--enable-job-insights" : "true",
+    "--enable-glue-datacatalog" : "true",
+    "--enable-continuous-cloudwatch-log" : "true",
+    "--job-bookmark-option" : "job-bookmark-disable",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-996091670049-eu-west-1/temporary/"
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 20,
+  "timeout" : 30,
+  "maxCapacity" : 20.0,
+  "glueVersion" : "3.0",
+  "numberOfWorkers" : 10,
+  "workerType" : "G.2X",
+  "executionClass" : "STANDARD",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "glue-version-control-test",
+    "branch" : "main",
+    "folder" : "client_name/etl_name"
+  }
+}
