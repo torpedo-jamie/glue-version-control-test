@@ -45,3 +45,5 @@ for obj in bucket.objects.all():
             }
     
     s3.meta.client.copy(copy_source, TARGET_BUCKET, 'partition_cloudfront_logs_date/dt='+ key_date_str + '/' + key.split('/')[-1])
+    
+ print("Hello world")
